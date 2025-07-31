@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a0000, #4d0000, #990000, #1a0000);
+      background-size: 400% 400%;
+      animation: bgAnim 20s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      padding: 20px;
+    }
+
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    .main-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-height: 70vh;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 320px;
+      height: 640px; /* Portrait size */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #ffccd5;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      color: #990f2e;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .letter {
+      max-width: 380px;
+      font-size: 1em;
+      line-height: 1.6;
+      color: #ffeef2;
+      text-align: left;
+    }
+
+    .letter h1 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .button-area {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    a.button {
+      background-color: #990f2e;
+      color: white;
+      padding: 10px 22px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    a.button:hover {
+      background-color: #bf1e3d;
+    }
+
+    @media (max-width: 700px) {
+      .main-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .letter {
+        text-align: center;
+      }
+
+      .letter h1 {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <div class="video-wrapper">
+      <button class="play-button">▶</button>
+      <video id="loveVideo" loop>
+        <source src="vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="letter">
+      <h1>MY MILK</h1>
+      <p>
+Every moment with you feels like a little adventure whether we’re bouncing ideas off each other, cracking up over something random, trying new food, or just heading out with no plan at all.<br>
+<br>
+Somehow, we always find a way to make the most ordinary days unforgettable. One minute we’re deep in a brainstorm, the next we’re eating something amazing and laughing so hard we forget what we were even talking about.<br>
+<br>
+You make everything better. Being with you is easy, exciting, and full of those little moments that stick with me. Life just makes more sense and feels way more fun with you in it.<br>
+<br>
+And honestly? I want more of this. More weird conversations, more new food to try, more spontaneous adventures, and way more of us just being us. I never get tired of it.<br>
+<br>
+Here’s to everything we’ve already done together and everything we’ve still got ahead of us. I LOVE YOU, ENDLESSLY.<br>
+      </p>
+    </div>
+  </div>
+
+  <div class="button-area">
+    <a href="us.html" class="button">⬅ Back to Letter</a>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('fade-in');
+    });
+
+    document.querySelector('a.button').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.body.classList.remove('fade-in');
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = this.getAttribute('href');
+      }, 500);
+    });
+
+    const playBtn = document.querySelector('.play-button');
+    const video = document.getElementById('loveVideo');
+
+    playBtn.addEventListener('click', () => {
+      video.style.display = 'block';
+      playBtn.style.display = 'none';
+      video.play();
+    });
+  </script>
+</body>
+</html>

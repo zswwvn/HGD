@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To MILK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a0000, #b80b87, #e7df0c, #1a0000);
+      background-size: 400% 400%;
+      animation: backgroundShift 20s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      padding: 10px;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      max-width: 90vw;
+      max-height: 90vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header {
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #ffcdd2;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #ffcccc;
+    }
+
+    .message {
+      font-size: 0.9em;
+      line-height: 1.4;
+      max-width: 360px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .button {
+      background-color: #dbd515;
+      color: white;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #a21edb;
+    }
+
+    footer {
+      font-size: 0.75em;
+      color: #ffcdd2;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .message {
+        font-size: 0.85em;
+        text-align: center;
+      }
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .header {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic">
+    <source src="SS.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <div class="header">HAPPY GIRLFRIENDS's DAY!</div>
+
+    <div class="content">
+      <img src="mm.jpg" alt="Our Photo">
+      <div class="message">
+        I simply wish to take a moment to express to you how much I appreciate you.
+        Each day spent with you is a gift one which I will never take lightly.
+        You’ve brought so much light, love, and meaning into my life.
+        I still catch myself smiling when I think about how fortunate I am to have you as mine.<br><br>
+
+        You've taught me what heartfelt affection looks like kind, understanding, and happy.  
+        Every moment we spend with you seems like home, whether we're laughing, chatting online or just sitting quietly.<br><br>
+
+        I’m so thankful for your love, for your heart, for the way you understand me.  
+        Thank you for being you. I love you more than words can ever express. 
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="video.html" class="button">🎬 Watch Video</a>
+      <div class="button" onclick="playMusic()">🎵 Play Music First</div>
+    </div>
+
+    <footer>Forever yours, MOCHA</footer>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('fade-in');
+    });
+
+    function playMusic() {
+      const audio = document.getElementById('bgMusic');
+      audio.play();
+    }
+  </script>
+</body>
+</html>
